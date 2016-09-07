@@ -5,26 +5,34 @@
 #services .title
   font-size: 24px
   text-align: center
-  margin-top: 15px
+  margin-top: 10px
   font-weight: 500
   text-transform: uppercase
   color: #444
 
-.category
-  display: inline-block
-  width: 25%
-  text-align: center
+.cat
+  display: table
+  width: 100%
+  overflow: auto
+  height: auto
   margin: 15px 0
+
+.category
+  display: table-cell
+  width: 20%
+  text-align: center
   color: $alfa-blue
 
-.category p
-  font-weight: 100
+.category .title-services
   font-size: 16px
-  color: #3f51b5
+  color: #2196f3
+  height: 50px
 
-.category img
-  width: 250px
+.category .img
+  width: 200px
+  height: 150px
   +border-radius(3px)
+  margin: 0 auto
 
 .category a
   text-transform: uppercase
