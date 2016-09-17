@@ -33,6 +33,17 @@
   height: 150px
   +border-radius(3px)
   margin: 0 auto
+  transition: all 1s ease-out
+  -moz-transition: all 1s ease-out
+  -o-transition: all 1s ease-out
+  -webkit-transition: all 1s ease-out
+
+.category .img:hover
+  transform: scale(1.3)
+  -webkit-transform: scale(1.3)
+  -moz-transform: scale(1.3)
+  -o-transform: scale(1.3)
+  cursor: pointer
 
 .category a
   text-transform: uppercase
@@ -40,6 +51,6 @@
 
 .category a:hover
   padding: 5px 10px
-  background-color: #3f51b5
+  background-color: $alfa-blue
   color: #fff
   +border-radius(3px)
