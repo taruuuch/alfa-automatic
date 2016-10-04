@@ -2,65 +2,54 @@ header
   background-color: rgba(0, 0, 0, 0.8)
   width: 100%
   color: #fff
-  z-index: 2
+  z-index: 100
   position: fixed
-
-#header-size
-  display: table
-  max-width: 1200px
-  height: 80px
-  margin: 0 auto
-
-#logotype
-  height: 60px
-  width: 5%
-  display: table-cell
-  vertical-align: middle
-
-#logotype img
-  margin-left: 30px
-  height: 75px
-  padding-top: 5px
-
-.navigation
-  display: table-cell
-  vertical-align: middle
-  width: 70%
-  text-align: center
-
-.navigation .custom-navigation
-  list-style: none
-  padding-left: 0
-
-.custom-navigation li, .custom-navigation li a
-  display: inline-block
-  position: relative
-
-.navigationbar li a
-  line-height: 18px
-
-.custom-navigation li a
-  padding: 10px 30px
-  text-transform: uppercase
-  text-decoration: none
-  color: #fff
-
-.navigationbar li a:hover
-  background-color: transparent !important
-  color: $alfa-blue
-
-#phone
-  width: 5%
-  display: table-cell
-  vertical-align: middle
-  font-size: 16px
-
-#phone div
-  margin-right: 30px
-
-#phone span
-  color: yellow
-  text-transform: uppercase
-
-#phone p, span
-  float: right
+  #header-size
+    display: table
+    height: 80px
+    #logotype
+      height: 60px
+      width: 5%
+      display: table-cell
+      vertical-align: middle
+      img
+        margin-left: 30px
+        height: 75px
+        padding-top: 5px
+  .navigation
+    display: table-cell
+    vertical-align: middle
+    width: 70%
+    text-align: center
+    .custom-navigation
+      list-style: none
+      padding-left: 0
+      li, li a
+        display: inline-block
+        position: relative
+    .navigationbar
+      li a
+        line-height: 18px
+        padding: 10px 30px
+        text-transform: uppercase
+        text-decoration: none
+        color: #fff
+      li a:hover
+        background-color: transparent !important
+        color: $alfa-blue
+  #phone
+    width: 5%
+    display: table-cell
+    vertical-align: middle
+    font-size: 16px
+    div
+      margin-right: 30px
+    div a
+      color: #FFF
+    div a:hover
+      color: $alfa-blue
+    span
+      color: yellow
+      text-transform: uppercase
+    p, span
+      float: right

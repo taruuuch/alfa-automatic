@@ -1,20 +1,29 @@
-div#feedback
+div#feedback.body-container
   div#map
-    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.6739003126936!2d30.429628623464133!3d50.44717449938682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc3d0ca0bf31%3A0xa48f76d6c1e13bb2!2z0LLRg9C70LjRhtGPINCT0LDRgNC80LDRgtC90LAsIDI2LzIsINCa0LjRl9Cy!5e0!3m2!1sru!2sua!4v1474146441760", width="400", height="300", frameborder="0", style="border:0", allowfullscreen)
-    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1797.6988157558512!2d30.408513116420476!3d50.416322091888645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cbe3671521b9%3A0x2bc88e4c31c1e46e!2z0LLRg9C70LjRhtGPINCv0LrRg9GC0YHRjNC60LAsIDcsINCa0LjRl9CyLCDQo9C60YDQsNC40L3QsA!5e0!3m2!1sru!2sru!4v1474483341082", width="400", height="300", frameborder="0", style="border:0;margin-left:10px;", allowfullscreen)
+    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.6739003126936!2d30.429628623464133!3d50.44717449938682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc3d0ca0bf31%3A0xa48f76d6c1e13bb2!2z0LLRg9C70LjRhtGPINCT0LDRgNC80LDRgtC90LAsIDI2LzIsINCa0LjRl9Cy!5e0!3m2!1sru!2sua!4v1474146441760", class="map", allowfullscreen)
+    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1797.6988157558512!2d30.408513116420476!3d50.416322091888645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cbe3671521b9%3A0x2bc88e4c31c1e46e!2z0LLRg9C70LjRhtGPINCv0LrRg9GC0YHRjNC60LAsIDcsINCa0LjRl9CyLCDQo9C60YDQsNC40L3QsA!5e0!3m2!1sru!2sru!4v1474483341082", class="map", allowfullscreen)
   div#contacts
-    div#text_cont
-      p
-        b Телефоны:
-      p +38 (044) 351-10-83
-      p +38 (044) 496-18-09
-      p +38 (067) 233-25-86 (Юрий)
-      p +38 (067) 209-16-90 (Виталий)
-      p
-        b Email:
-      p yuraalfa@gmail.com
-      p kvp1970@ukr.net
-      p
-        b Адресса:
-      p Офис: Гарматная 26/2
-      p Производство: Якутская 7
+    div#text_contact
+      div.contact
+        p
+          b Телефоны:
+        p
+          a(href="tel:380443511083") +38 (044) 351-10-83
+        p
+          a(href="tel:380444961809") +38 (044) 496-18-09
+        p
+          a(href="tel:380672332586") +38 (067) 233-25-86 (Юрий)
+        p
+          a(href="tel:380672091690") +38 (067) 209-16-90 (Виталий)
+      div.contact
+        p
+          b Email:
+        p
+          a(href="mailto:yuraalfa@gmail.com") yuraalfa@gmail.com
+        p
+        a(href="mailto:kvp1970@ukr.net") kvp1970@ukr.net
+      div.contact
+        p
+          b Адрес:
+        p Офис: Гарматная 26/2
+        p Производство: Якутская 7

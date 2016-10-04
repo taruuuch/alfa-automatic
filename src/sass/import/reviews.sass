@@ -1,27 +1,35 @@
 #review
   background-color: #bbdefb
-
-#content-review
-  max-width: 1200px
-  margin: 0 auto
-
-#content-review .title
-  font-size: 24px
-  text-align: center
-  padding-top: 10px
-  font-weight: 500
-  text-transform: uppercase
-  color: #444
-
-.review
-  padding-bottom: 15px
-
-.swiper-container
-  width: 1200px
-  height: 100px
-
-.swiper-slide
-  padding: 20px 60px
-
-.swiper-pagination-bullets
-  left: -50%
+  .review
+    padding-bottom: 15px
+    .container
+      width: 100%
+      height: 100px
+      position: relative
+      overflow: hidden
+      .swiper-wrapper
+        width: 90%
+        text-align: center
+        .swiper-slide
+          padding: 20px 60px
+      .button-prev, .button-next
+        position: absolute
+        top: 50%
+        width: 5%
+        height: 44px
+        margin-top: -22px
+        z-index: 10
+        cursor: pointer
+        -moz-background-size: 27px 44px
+        -webkit-background-size: 27px 44px
+        background-size: 27px 44px
+        background-position: center
+        background-repeat: no-repeat
+        text-align: center
+        color: #FFF
+      .button-prev
+        right: auto
+        left: 0
+      .button-next
+        right: 0
+        left: auto

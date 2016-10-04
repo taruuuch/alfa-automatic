@@ -23,8 +23,7 @@ gulp.task('sass', function () {
   return gulp.src('src/sass/main.sass')
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(uncss({
-            html: ['dist/**/*.html'],
-            ignore: ['.collapsing','.navbar-collapse.in','.collapse.in']
+            html: ['dist/**/*.html']
         }))
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(cleanCss())
