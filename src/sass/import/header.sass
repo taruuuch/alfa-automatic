@@ -4,22 +4,18 @@ header
   color: #fff
   z-index: 100
   position: fixed
-  #header-size
-    display: table
+  height: 80px
+  #logotype
+    float: left
+    width: 10%
+    background: url(../images/logooriginal.png) no-repeat
+    background-size: 100%
     height: 80px
-    #logotype
-      height: 60px
-      width: 5%
-      display: table-cell
-      vertical-align: middle
-      img
-        margin-left: 30px
-        height: 75px
-        padding-top: 5px
+    margin-top: 10px
   .navigation
-    display: table-cell
-    vertical-align: middle
-    width: 70%
+    float: left
+    width: 80%
+    margin-top: 20px
     text-align: center
     .custom-navigation
       list-style: none
@@ -38,15 +34,13 @@ header
         background-color: transparent !important
         color: $alfa-blue
   #phone
-    width: 5%
-    display: table-cell
-    vertical-align: middle
+    width: 10%
+    float: left
     font-size: 16px
-    div
-      margin-right: 30px
-    div a
+    margin-top: 20px
+    a
       color: #FFF
-    div a:hover
+    a:hover
       color: $alfa-blue
     span
       color: yellow
