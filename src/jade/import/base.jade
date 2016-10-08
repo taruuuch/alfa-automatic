@@ -1,9 +1,10 @@
 doctype html
 html(lang="ru")
   include ./head.jade
-  body#page-body
-    include ./header.jade
-    div
+  body
+    include ./nav.jade
+    block header
+    main
       block content
         include ./content.jade
     include ./footer.jade

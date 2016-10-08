@@ -1,18 +1,9 @@
 //Tablet
 @media screen and (max-width:1200px)
-  .body-container
-    max-width: 1024px
-    margin: 0 auto
 
 @media screen and (max-width:1024px)
-  .body-container
-    max-width: 1000px
-    margin: 0 auto
 
 @media screen and (max-width:922px)
-  .body-container
-    max-width: 922px
-    margin: 0 auto
   header
     .navigation
       .custom-navigation
@@ -24,16 +15,22 @@
 @media screen and (max-width:600px)
   #feedback
     #contacts
-      #text_contact
-        display: block
-        .contact
-          display: block
-          width: 600px
-
+      .contact
+        width: 100%
+  #feedback
+    #map
+      .map
+        width: 100%
+  #services
+    .cat
+      .category
+        width: 100%
+        padding: 0
+  #aboutcompany
+    .imagescat
+      .images
+        width: 50%
 @media screen and (max-width:768px)
-  .body-container
-    max-width: 768px
-    margin: 0 auto
   header
     .navigation
       .custom-navigation
@@ -41,14 +38,21 @@
           display: none
         li:first-child
           display: block
-
+  #feedback
+    #map
+      .map
+        width: 100%
 //Mobile
 @media screen and (max-width:480px)
-  .body-container
-    max-width: 480px
-    margin: 0 auto
+  header
+    #phone
+      margin-top: 5px
   #services
     .cat
       .category
         display: block
+        width: 100%
+  #feedback
+    #map
+      .map
         width: 100%

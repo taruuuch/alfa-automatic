@@ -1,4 +1,4 @@
-header
+nav
   background-color: rgba(0, 0, 0, 0.8)
   width: 100%
   color: #fff
@@ -7,14 +7,14 @@ header
   height: 80px
   #logotype
     float: left
-    width: 10%
-    background: url(../images/logooriginal.png) no-repeat
-    background-size: 100%
+    width: 20%
     height: 80px
     margin-top: 10px
+    img
+      height: 60px
   .navigation
     float: left
-    width: 80%
+    width: 60%
     margin-top: 20px
     text-align: center
     .custom-navigation
@@ -34,16 +34,37 @@ header
         background-color: transparent !important
         color: $alfa-blue
   #phone
-    width: 10%
+    width: 20%
     float: left
     font-size: 16px
     margin-top: 20px
+    text-align: center
     a
       color: #FFF
     a:hover
       color: $alfa-blue
     span
-      color: yellow
+      color: #eea849
       text-transform: uppercase
-    p, span
-      float: right
+
+header
+  min-height: 100%
+  height: 100%
+  width: 100%
+
+#toppicture
+  background-image: url(../images/topcontent.jpg)
+  background-size: cover
+  background-position: center center
+  background-repeat: no-repeat
+  height: 100%
+  width: 100%
+  position: absolute
+  left: 0
+  top: 0
+  z-index: -1
+  transition-property: filter
+  transition-duration: 0.5s
+  transition-timing-function: ease-in-out
+  animation-fill-mode: backwards
+  animation-duration: 5s

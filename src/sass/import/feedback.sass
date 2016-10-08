@@ -1,25 +1,43 @@
 #feedback
-  margin-bottom: 10px
+  padding: 2rem 0
+  background-color: #212121
+  overflow: hidden
+  .title
+    color: #fff
   #map
-    width: 100%
-    display: block
+    width: 50%
     overflow: hidden
     position: relative
     margin-top: 10px
+    float: right
     .map
-      width: 49.5%
+      width: 100%
+      float: left
       height: 350px
       border: 0
-      margin-right: .5%
+      margin-bottom: .5%
     .map:last-child
-      margin-right: 0
-      margin-left: .5%
+      margin-bottom: 0
+      margin-top: .5%
   #contacts
-    width: 100%
-    #text_contact
-      display: table
-      vertical-align: top
-      .contact
-        display: table-cell
-        width: calc(1200px/3)
-        text-align: center
+    width: 50%
+    height: auto
+    padding: 1rem 0
+    float: left
+    a
+      color: #fff
+    a:hover
+      color: $alfa-blue
+    .contact
+      color: #fff
+      width: 100%
+      height: auto
+      display: block
+      margin-top: 30px
+      p
+        margin: 5px 0
+      p:first-child
+        font-size: 16px
+        color: $alfa-blue
+    .contact:first-child
+      margin-top: 0

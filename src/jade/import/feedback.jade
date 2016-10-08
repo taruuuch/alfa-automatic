@@ -1,11 +1,11 @@
-div#feedback.body-container
-  div.title
-    |Контакты
-  div#map
-    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.6739003126936!2d30.429628623464133!3d50.44717449938682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc3d0ca0bf31%3A0xa48f76d6c1e13bb2!2z0LLRg9C70LjRhtGPINCT0LDRgNC80LDRgtC90LAsIDI2LzIsINCa0LjRl9Cy!5e0!3m2!1sru!2sua!4v1474146441760", class="map", allowfullscreen)
-    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1797.6988157558512!2d30.408513116420476!3d50.416322091888645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cbe3671521b9%3A0x2bc88e4c31c1e46e!2z0LLRg9C70LjRhtGPINCv0LrRg9GC0YHRjNC60LAsIDcsINCa0LjRl9CyLCDQo9C60YDQsNC40L3QsA!5e0!3m2!1sru!2sru!4v1474483341082", class="map", allowfullscreen)
-  div#contacts
-    div#text_contact
+section#feedback
+  div.body-container
+    div.title
+      |Контакты
+    div#map
+      iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.6739003126936!2d30.429628623464133!3d50.44717449938682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc3d0ca0bf31%3A0xa48f76d6c1e13bb2!2z0LLRg9C70LjRhtGPINCT0LDRgNC80LDRgtC90LAsIDI2LzIsINCa0LjRl9Cy!5e0!3m2!1sru!2sua!4v1474146441760", class="map")
+      iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1797.6988157558512!2d30.408513116420476!3d50.416322091888645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cbe3671521b9%3A0x2bc88e4c31c1e46e!2z0LLRg9C70LjRhtGPINCv0LrRg9GC0YHRjNC60LAsIDcsINCa0LjRl9CyLCDQo9C60YDQsNC40L3QsA!5e0!3m2!1sru!2sru!4v1474483341082", class="map")
+    div#contacts
       div.contact
         p
           b Телефоны:
@@ -23,9 +23,13 @@ div#feedback.body-container
         p
           a(href="mailto:yuraalfa@gmail.com") yuraalfa@gmail.com
         p
-        a(href="mailto:kvp1970@ukr.net") kvp1970@ukr.net
+          a(href="mailto:kvp1970@ukr.net") kvp1970@ukr.net
       div.contact
         p
           b Адрес:
-        p Офис: Гарматная 26/2
-        p Производство: Якутская 7
+        p
+          i Офис:
+          &nbsp;Украина, г. Киев, Гарматная, 26/2
+        p
+          i Производство:
+          &nbsp;Украина, г. Киев, Якутская, 7

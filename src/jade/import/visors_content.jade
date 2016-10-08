@@ -1,0 +1,13 @@
+section
+  div.inpage.body-container
+    article
+      h1 Навесы для автомобилей и козырьки
+    article.inpagecontent
+      div.imagecontent(style="background: url(../images/navesu/nav1.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100%;")
+      div.textcontent
+        p ОПисание!
+    article.inpageimages
+      h2 Пример наших разработок навесов для автомобилей и козырьков
+      - for (var x = 1; x < 9; x++)
+        a(href="images/navesu/nav#{x}.jpg")
+          img(src="images/navesu/nav#{x}.jpg")
