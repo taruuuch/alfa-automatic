@@ -63,8 +63,42 @@ header
   left: 0
   top: 0
   z-index: -1
-  transition-property: filter
-  transition-duration: 0.5s
-  transition-timing-function: ease-in-out
-  animation-fill-mode: backwards
-  animation-duration: 5s
+
+#textonpicture
+  -webkit-align-self: left
+  -ms-flex-item-align: left
+  align-self: left
+  display: -webkit-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  -webkit-box-orient: vertical
+  -webkit-box-direction: normal
+  -webkit-flex-direction: column
+  -ms-flex-direction: column
+  flex-direction: column
+  -webkit-box-pack: left
+  -webkit-justify-content: left
+  -ms-flex-pack: left
+  justify-content: center
+  -webkit-box-align: left
+  -webkit-align-items: left
+  -ms-flex-align: left
+  align-items: left
+  text-align: left
+  height: 100%
+  color: #fff
+  background-color: rgba(0, 0, 0, .3)
+  #textback
+    background-color: rgba(238, 168, 73, .5)
+    padding: 20px 0
+    font-size: 16px
+    width: 30%
+    text-align: center
+    p:first-child
+      padding-bottom: 10px
+      font-weight: 900
+      text-transform: uppercase
+      font-size: 26px
+    p:last-child
+      font-style: italic

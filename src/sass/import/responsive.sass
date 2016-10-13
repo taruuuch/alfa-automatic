@@ -1,58 +1,70 @@
 //Tablet
-@media screen and (max-width:1200px)
-
 @media screen and (max-width:1024px)
+  div#contacts
+    padding: 0 0 0 10px
+  div#textback
+    width: 40% !important
+  .inpageimages
+    div
+      width: 25% !important
+@media screen and (max-width:950px)
+  nav
+    .body-container
+      .navigation
+        .custom-navigation
+          li
+            display: none
+          li:first-child
+            display: block
 
-@media screen and (max-width:922px)
-  header
-    .navigation
-      .custom-navigation
-        li
-          display: none
-        li:first-child
-          display: block
-
-@media screen and (max-width:600px)
-  #feedback
-    #contacts
-      .contact
-        width: 100%
-  #feedback
-    #map
-      .map
-        width: 100%
-  #services
-    .cat
-      .category
-        width: 100%
-        padding: 0
-  #aboutcompany
-    .imagescat
-      .images
-        width: 50%
 @media screen and (max-width:768px)
-  header
-    .navigation
-      .custom-navigation
-        li
-          display: none
-        li:first-child
-          display: block
-  #feedback
-    #map
-      .map
-        width: 100%
+  .category
+    width: 50% !important
+  .map
+    width: 100% !important
+  .map:last-child
+    margin-left: 0 !important
+    margin-top: 5px
+  div#contacts
+    margin-top: 15px !important
+  .button-prev
+    left: 10px !important
+  .button-next
+    right: 10px !important
+  .text
+    padding: 0 10px !important
+  div#textback
+    width: 50% !important
+  .category:nth-child(3n)
+    padding-bottom: 0 !important
+  .category
+    padding-bottom: 1rem
+  .inpageimages
+    div
+      width: 50% !important
+  .imagecontent
+    height: 150px !important
 //Mobile
+@media screen and (max-width:640px)
+  .contact
+    width: 50% !important
+  .imagecontent
+    width: 100% !important
+    height: 200px !important
+    margin-bottom: 10px
+  .textcontent
+    width: 100% !important
 @media screen and (max-width:480px)
-  header
-    #phone
-      margin-top: 5px
-  #services
-    .cat
-      .category
-        display: block
-        width: 100%
-  #feedback
-    #map
-      .map
-        width: 100%
+  .category
+    width: 100% !important
+  div#textback
+    width: 100% !important
+  #phone
+    width: 30% !important
+  .navigation
+    width: 50% !important
+  .contact
+    width: 100% !important
+  .inpageimages
+    div
+      width: 100% !important

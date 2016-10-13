@@ -3,11 +3,11 @@ section
     article
       h1 Навесы для автомобилей и козырьки
     article.inpagecontent
-      div.imagecontent(style="background: url(../images/navesu/nav1.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100%;")
+      div.imagecontent(style="background: url(../images/navesu/nav1-min.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100%;")
       div.textcontent
         p ОПисание!
     article.inpageimages
       h2 Пример наших разработок навесов для автомобилей и козырьков
       - for (var x = 1; x < 9; x++)
-        a(href="images/navesu/nav#{x}.jpg")
-          img(src="images/navesu/nav#{x}.jpg")
+        a(href="images/navesu/nav#{x}-min.jpg")
+          div(style="background-image: url(images/navesu/nav#{x}-min.jpg);background-repeat:no-repeat;background-size:cover;background-position:center center;")
