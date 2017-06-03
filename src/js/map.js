@@ -1,25 +1,28 @@
 $(document).ready(function() {
-  ymaps.ready(init);
-  var myMap,
-    myPlacemark;
+  var element = document.getElementById("map");
 
-  function init() {
-    myMap = new ymaps.Map("map", {
-      center: [50.434726, 30.423395],
-      zoom: 13
-    });
+  var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var labelIndex = 0;
 
-    myPlacemark = new ymaps.Placemark([50.447223, 30.431463], {
-      hintContent: 'Украина, г. Киев, Гарматная, 26/2',
-      balloonContent: 'Офис<br/>Украина, г. Киев, Гарматная, 26/2'
-    });
+  var map = new google.maps.Map(element, {
+    center: new google.maps.LatLng(50.430997, 30.415749),
+    zoom: 13,
+    mapTypeId: "roadmap",
+    mapTypeControl: false,
+    streetViewControl: false
+  });
 
-    myPlacemark2 = new ymaps.Placemark([50.416353, 30.409985], {
-      hintContent: 'Украина, г. Киев, Якутская, 7',
-      balloonContent: 'Производства<br/>Украина, г. Киев, Якутская, 7'
-    });
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(50.447223, 30.431463),
+    map: map,
+    label: labels[labelIndex++ % labels.length],
+    title: 'Офис: Украина, г. Киев, Гарматная, 26/2'
+  });
 
-    myMap.geoObjects.add(myPlacemark);
-    myMap.geoObjects.add(myPlacemark2);
-  }
+  var marker2 = new google.maps.Marker({
+    position: new google.maps.LatLng(50.416353, 30.409985),
+    map: map,
+    label: labels[labelIndex++ % labels.length],
+    title: 'Производство: Украина, г. Киев, Якутская, 7'
+  });
 });
