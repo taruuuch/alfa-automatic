@@ -1,80 +1,221 @@
-var gulp        = require('gulp'),
-    browserSync = require('browser-sync'),
-    sass        = require('gulp-sass'),
-    autoprefixer= require('gulp-autoprefixer'),
-    cp          = require('child_process'),
-    jade        = require('gulp-jade'),
-    uncss       = require('gulp-uncss'),
-    cleanCss    = require('gulp-clean-css'),
-    imagemin    = require('gulp-imagemin'),
-    pngquant    = require('imagemin-pngquant'),
-    print       = require('gulp-print');
+const browserSync = require('browser-sync').create();
+const { task, series, watch, src, dest } = require('gulp');
 
-var autoprefixerOptions = {
-  browsers: ['ie > 8','> 1%']
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const babel = require('gulp-babel');
+const postcss = require('gulp-postcss');
+const imagemin = require('gulp-imagemin');
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify-es').default;
+const concat = require('gulp-concat');
+const del = require('del');
+
+const autoprefixer = require('autoprefixer');
+const mqpacker = require('css-mqpacker');
+const cssnano = require('cssnano')({
+	preset: [
+		'default', {
+			discardComments: {
+				removeAll: true
+			}
+		}
+	]
+});
+
+const path = {
+	build: {
+		pug   : 'build/',
+		js    : 'build/js/',
+		style : 'build/style/',
+		image : 'build/images/',
+		font  : 'build/font/'
+	},
+	src: {
+		pug  : {
+			watch: 'src/jade/**/*.pug',
+			prod: 'src/jade/*.pug'
+		},
+		js   : 'src/js/**/*.js',
+		style: 'src/sass/**/*.{sass,scss}',
+		image: 'src/images/**/*.{jpg,jpeg,png,gif,svg,ico}',
+		font : 'src/font/**/*.{eot,ttf,woff,woff2}',
+		jslib: [
+			'src/lib/js/*.js'
+		],
+		csslib: [
+			'src/lib/css/*.css'
+		]
+	}
 };
 
-gulp.task('browser-sync', ['sass','jade'], function() {
-  browserSync({
-    server: {
-      baseDir: 'dist'
-    }
-  });
+const postcssPlugins = [
+	autoprefixer(),
+	cssnano,
+	mqpacker()
+];
+
+task('browserSyncServer', (done) => {
+	browserSync.init({
+		server: {
+			baseDir: path.build.pug,
+		},
+		notify: true
+	});
+	done();
 });
 
-gulp.task('sass', function () {
-  return gulp.src('src/sass/main.sass')
-    .pipe(sass.sync().on('error', sass.logError))
-    .pipe(uncss({
-            html: ['dist/**/*.html']
-        }))
-    .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(cleanCss())
-    .pipe(gulp.dest('dist/css'))
-    .pipe(browserSync.stream());
+task('reload', (done) => {
+	browserSync.reload();
+	done();
 });
 
-gulp.task('jade', function(){
-  gulp.src(['src/jade/**/*.jade'])
-    .pipe(print())
-    .pipe(jade())
-    .pipe(gulp.dest('dist/'));
+task('js:dev', () => {
+	return src(path.src.js)
+		.on('error', notify.onError({
+			message: '\n<%= error.message %>',
+			title: 'JS'
+		}))
+		.pipe(sourcemaps.init())
+		.pipe(babel({
+			presets: ['@babel/preset-env']
+		}))
+		.pipe(concat('bundle.js'))
+		.pipe(uglify())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(dest(path.build.js))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('browser-reload',function () {
-  browserSync.notify(messages.simple)
-  browserSync.reload()
+task('js:build', () => {
+	return src(path.src.js)
+		.pipe(babel({
+			presets: ['@babel/preset-env']
+		}))
+		.pipe(concat('bundle.js'))
+		.pipe(uglify())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(dest(path.build.js))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('load-js',function () {
-  gulp.src([
-    'node_modules/jquery/dist/jquery.min.js',
-    'src/js/**/*.js'
-  ])
-    .pipe(gulp.dest('dist/js'));
+task('sass:dev', () => {
+	return src(path.src.style)
+		.pipe(sass())
+		.on('error', notify.onError({
+			message: '\n<%= error.message %>',
+			title: 'SASS'
+		}))
+		.pipe(sourcemaps.init())
+		.pipe(postcss(postcssPlugins))
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(dest(path.build.style))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('load-images',function(){
-  gulp.src('src/images/**/*')
-    .pipe(gulp.dest('dist/images'));
+task('sass:build', () => {
+	return src(path.src.style)
+		.pipe(sass())
+		.pipe(postcss(postcssPlugins))
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(dest(path.build.style))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('clean', function() {
-  return del(['dist']);
+task('pug:dev', () => {
+	return src(path.src.pug.prod)
+		.pipe(pug({
+			pretty: true
+		}))
+		.on('error', notify.onError({
+			message: '\n<%= error.message %>',
+			title: 'PUG'
+		}))
+		.pipe(dest(path.build.pug))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('images', ['clean'], function() {
-  return gulp.src('dist/images')
-    .pipe(imagemin({optimizationLevel: 5}))
-    .pipe(pngquant())
-    .pipe(gulp.dest('dist/images'));
+task('pug:build', () => {
+	return src(path.src.pug.prod)
+		.pipe(pug({
+			pretty: true
+		}))
+		.pipe(dest(path.build.pug))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('watch', function () {
-  gulp.watch(['src/sass/**/*.sass','src/sass/**/*.scss'], ['sass'])
-  gulp.watch('src/jade/**/*.jade',['jade'])
-  gulp.watch(['dist/*.html']).on("change",browserSync.reload)
-  gulp.watch(['src/images/**/*'],['load-images']);
+task('image:dev', () => {
+	return src(path.src.image)
+		.pipe(dest(path.build.image))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('default', ['load-js','load-images','browser-sync', 'watch']);
+task('image:build', () => {
+	return src(path.src.image)
+		.pipe(imagemin([
+			imagemin.gifsicle({
+				interlaced: true
+			}),
+			imagemin.mozjpeg({
+				quality: 75,
+				progressive: true
+			}),
+			imagemin.optipng({
+				optimizationLevel: 5
+			}),
+			imagemin.svgo({
+				plugins: [
+					{ removeViewBox: true },
+					{ cleanupIDs: false }
+				]
+			})
+		]))
+		.pipe(dest(path.build.image))
+		.pipe(browserSync.stream());
+});
+
+task('font', () => {
+	return src(path.src.font)
+		.pipe(dest(path.build.font))
+		.pipe(browserSync.stream());
+});
+
+task('jslib', () => {
+	return src(path.src.jslib)
+		.pipe(dest(path.build.js))
+		.pipe(browserSync.stream());
+});
+
+task('csslib', () => {
+	return src(path.src.csslib)
+		.pipe(dest(path.build.style))
+		.pipe(browserSync.stream());
+});
+
+task('watcher', () => {
+	watch(path.src.pug.watch, series('pug:dev', 'reload'));
+	watch(path.src.style, series('sass:dev', 'reload'));
+	watch(path.src.js, series('js:dev', 'reload'));
+	watch(path.src.image, series('image:dev', 'reload'));
+	watch(path.src.font, series('font', 'reload'));
+	watch(path.src.jslib, series('jslib', 'reload'));
+	watch(path.src.csslib, series('csslib', 'reload'));
+});
+
+task('clean', () => del(path.build.pug));
+
+task('dev', series('pug:dev', 'js:dev', 'sass:dev', 'image:dev', 'csslib', 'jslib', 'font', 'browserSyncServer', 'watcher'));
+task('build', series('clean', 'pug:build', 'js:build', 'sass:build', 'image:build'));
+task('image', series('clean', 'image:build'));
