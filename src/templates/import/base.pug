@@ -1,13 +1,13 @@
 doctype html
 html(lang="ru")
-  include ./head.jade
+  include ./head.pug
   body
-    include ./nav.jade
+    include ./nav.pug
     block header
     main
       block content
-        include ./content.jade
-    include ./footer.jade
+        include ./content.pug
+    include ./footer.pug
     script(defer, src="js/map.js")
     script(src="js/main.js")
     script(src="js/jquery.min.js")

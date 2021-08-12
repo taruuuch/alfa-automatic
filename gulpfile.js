@@ -2,7 +2,7 @@ const browserSync = require('browser-sync').create();
 const { task, series, watch, src, dest } = require('gulp');
 
 const pug = require('gulp-pug');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const babel = require('gulp-babel');
 const postcss = require('gulp-postcss');
 const imagemin = require('gulp-imagemin');
@@ -35,8 +35,8 @@ const path = {
 	},
 	src: {
 		pug  : {
-			watch: 'src/jade/**/*.pug',
-			prod: 'src/jade/*.pug'
+			watch: 'src/templates/**/*.pug',
+			prod: 'src/templates/*.pug'
 		},
 		js   : 'src/js/**/*.js',
 		style: 'src/sass/**/*.{sass,scss}',
