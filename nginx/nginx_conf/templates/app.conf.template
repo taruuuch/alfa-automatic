@@ -7,26 +7,16 @@ server {
     location / {
         return 301 https://$host$request_uri;
     }
-
-}
-
-upstream backend {
-    server ${BACKEND_HOST};
 }
 
 server {
-    listen 443 ssl http2;
+    listen 80;
 
     include /etc/nginx/conf.d/common/ssl_common.conf;
 
     location / {
-        alias /var/www/admin/;
+        alias /var/www/alfa-automatic/;
         try_files $uri /index.html index.html;
-    }
-
-    location /api/v1 {
-        include /etc/nginx/conf.d/common/backend_proxy.conf;
-        proxy_pass http://backend;
     }
 }
 
