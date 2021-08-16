@@ -214,7 +214,7 @@ task('watcher', () => {
 	watch(path.src.csslib, series('csslib', 'reload'));
 });
 
-task('clean', () => del(path.build.pug));
+task('clean', () => del(`${path.build.pug}/**`));
 
 task('dev', series('pug:dev', 'js:dev', 'sass:dev', 'image:dev', 'csslib', 'jslib', 'font', 'browserSyncServer', 'watcher'));
 task('build', series('clean', 'pug:build', 'js:build', 'sass:build', 'image:build'));
