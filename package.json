@@ -16,9 +16,6 @@
 		"url": "https://github.com/tAruuuch/alfa-automatic/issues"
 	},
 	"homepage": "https://github.com/tAruuuch/alfa-automatic#readme",
-	"dependencies": {
-		"jquery": "^3.5.1"
-	},
 	"devDependencies": {
 		"@babel/core": "^7.12.10",
 		"@babel/preset-env": "^7.12.11",
